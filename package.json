@@ -1,0 +1,19 @@
+{
+  "name": "timestamp",
+  "version": "1.0.0",
+  "description": "Free Code Camp Exercise",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SCOBARS900/timestamp_ms.git"
+  },
+  "author": "Julio Escobar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SCOBARS900/timestamp_ms/issues"
+  },
+  "homepage": "https://github.com/SCOBARS900/timestamp_ms#readme"
+}
