@@ -1,6 +1,8 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var cors = require('cors');
+var http = require('http');
+var fs = require('fs');
 
 
 var app = express();
@@ -8,27 +10,40 @@ var app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-app.get('/date/:dval', function(req, res, next) {
+app.use(express.static('public'));
+
+
+
+app.get('/:dval', function(req, res) {
   var dval = req.params.dval;
    
   var dateFormattingOptions = {
       year: 'numeric',
       month: 'long',
       day: 'numeric'
-  }    
+  };
+    
+  if(isNaN(dval)) {
+      var naturalDate = new Date(dval);
+      naturalDate = naturalDate.toLocaleDateString("en-us", dateFormattingOptions);
+      
+      var unixDate = new Date(dval).getTime()/1000; 
+  } else {
+      var unixDate = dval;
+      
+      var naturalDate = new Date(dval * 1000);
+      naturalDate = naturalDate.toLocaleDateString("en-us", dateFormattingOptions);
+  }
+    
+    if(naturalDate == "Invalid Date") {
+        naturalDate = null;
+    }
+      
+  
     
     
-  res.json({ unix: dval });  
+  res.json({ unix: unixDate, natural: naturalDate });  
 });
-
-
-
-
-
-
-
-
-
 
 
 
