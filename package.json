@@ -4,7 +4,7 @@
   "description": "Free Code Camp Exercise",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon -e css, ejs, js, json --watch app"
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
